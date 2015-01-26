@@ -12,37 +12,51 @@
 
     <button ng-click="routin.showSelection()">show</button>
     <br/>
-    <table class="table table-bordered table-condensed">
-        <thead>
-        <tr>
-            <th>&nbsp;</th>
-            <th>&nbsp;</th>
-            <th ng-repeat="period in routin.periods">{{period.name}}</th>
-        </tr>
-        </thead>
-        <tr ng-repeat="day in routin.days">
-            <th>{{day.name}}</th>
-            <td>
-                <table class="table table-condensed table-bordered">
-                    <tr ng-repeat="claz in routin.classes">
-                        <td>{{claz.name}}</td>
-                    </tr>
-                </table>
-            </td>
-            <td ng-repeat="period in routin.periods">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
                 <table class="table table-bordered table-condensed">
-                    <tr ng-repeat="claz in routin.classes">
-                        <td><select
-                                ng-model="routin.selection[routin.getClassIdentifier(day, period, claz)].subject"
-                                ng-options="subject as subject.name for subject in routin.subjects"></select></td>
-                        <td><select
-                                ng-model="routin.selection[routin.getClassIdentifier(day, period, claz)].teacher"
-                                ng-options="teacher as teacher.shortName for teacher in routin.teachers"></select></td>
+                    <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th ng-repeat="period in routin.periods">{{period.name}}</th>
+                    </tr>
+                    </thead>
+                    <tr ng-repeat="day in routin.days">
+                        <th>{{day.name}}</th>
+                        <td>
+                            <ul class="list-unstyled">
+                                <li ng-repeat="claz in routin.classes">
+                                    {{claz.name}}
+                                </li>
+                            </ul>
+                        </td>
+                        <td ng-repeat="period in routin.periods">
+                            <ul class="list-unstyled">
+                                <li ng-repeat="claz in routin.classes"><select
+                                        ng-model="routin.selection[routin.getClassIdentifier(day, period, claz)].subject"
+                                        ng-options="subject as subject.name for subject in routin.subjects"></select>
+                                    <select
+                                            ng-model="routin.selection[routin.getClassIdentifier(day, period, claz)].teacher"
+                                            ng-options="teacher as teacher.shortName for teacher in routin.teachers"></select>
+                                </li>
+                            </ul>
+                        </td>
                     </tr>
                 </table>
-            </td>
-        </tr>
-    </table>
+            </div>
+            <div class="col-md-4">
+                <table class="table table-condensed table-bordered">
+                    <tr ng-repeat="teacher in routin.teachers">
+                        <td>{{teacher.name}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 

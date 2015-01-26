@@ -13,7 +13,8 @@ angular.module('schoolApp').controller('routinCtrl', function ($scope) {
     {name: 'Somdatta Banarjee', shortName: 'SB'},
     {name: 'Anurag Sutradhar', shortName: 'AS'},
     {name: 'Sakti Pal', shortName: 'SP'},
-    {name: 'Rituparna Das', shortName: 'RD'}];
+    {name: 'Rituparna Das', shortName: 'RD'},
+    {name: 'New Teacher', shortName: 'NT'}];
 
   var classes = [{name: 'II - A1'},
     {name: 'II - A2'},
