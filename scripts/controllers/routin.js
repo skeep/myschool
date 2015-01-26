@@ -63,7 +63,7 @@ angular.module('schoolApp').controller('routinCtrl', function ($scope) {
 
 
   var getClassIdentifier = function (day, period, claz) {
-    return day.name + ':' + period + ':' + claz.name;
+    return day.name + ':' + period.name + ':' + claz.name;
   };
 
   var selection = {};
